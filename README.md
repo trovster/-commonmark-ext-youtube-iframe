@@ -26,8 +26,10 @@ use League\CommonMark\MarkdownConverter as Converter;
 use Surface\CommonMark\Ext\YouTubeIframe\Extension as YouTubeExtension;
 
 $options = [
-    'youtube_width' => '800',
-    'youtube_height' => '600',
+    'youtube_iframe' => [
+        'width' => 800,
+        'height' => 600,
+    ]
 ];
 
 $environment = new Environment($options);
@@ -43,8 +45,8 @@ echo $converter->convert('[](https://www.youtube.com/watch?v=xxx&width=640)');
 
 ### Dimensions
 
-You can control the dimensions of the videos by using the `youtube_width` and
-`youtube_height` configuration options.
+You can control the dimensions of the videos by using the `width` and
+`height` configuration options.
 
 You can also configure the dimensions using query parameters on the embed URL.
 You can provide the `height` or `width` or *both*.
@@ -53,6 +55,20 @@ You can provide the `height` or `width` or *both*.
 ?width=640
 ?height=480
 ?width=640&height=480
+```
+
+### Full URL
+
+You can disable the parsing of full YouTube URLs (with or without the www) by
+using the following option. If this option is disabled, only URLs under the
+‘short’ domain will be used (`youtu.be`).
+
+```php
+$options = [
+    'youtube_iframe' => [
+        'full_url' => false,
+    ]
+];
 ```
 
 ## Testing

@@ -1,7 +1,12 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Cannot call method getType\\(\\) on Trovster\\\\CommonMark\\\\Ext\\\\SpotifyIframe\\\\Url\\\\Url\\|null\\.$#"
+			message: "#^Method Surface\\\\CommonMark\\\\Ext\\\\YouTubeIframe\\\\Url\\\\Parsers\\\\Full\\:\\:getUuid\\(\\) should return string\\|null but returns array\\<int, string\\>\\|string\\.$#"
 			count: 1
-			path: tests/Unit/Url/AlbumTest.php
+			path: src/Url/Parsers/Full.php
+
+		-
+			message: "#^Method Surface\\\\CommonMark\\\\Ext\\\\YouTubeIframe\\\\Url\\\\Parsers\\\\WithoutWww\\:\\:getUuid\\(\\) should return string\\|null but returns array\\<int, string\\>\\|string\\.$#"
+			count: 1
+			path: src/Url/Parsers/WithoutWww.php
 
